@@ -61,7 +61,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'DEV' in os.environ
 
-ALLOWED_HOSTS = ['localhost', 'drf-api-mm.herokuapp.com', 'drf-api-mm-f68b541c99c7.herokuapp.com']
+ALLOWED_HOSTS = ['localhost', 'drf-api-mm.herokuapp.com', 'drf-api-mm-f68b541c99c7.herokuapp.com', '8000-antonei-mmapi-b7ktmaqggit.ws-eu110.gitpod.io']
 
 
 # Application definition
@@ -83,7 +83,6 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    'dj_rest_auth.registration',
     'dj_rest_auth.registration',
     'corsheaders',
 
