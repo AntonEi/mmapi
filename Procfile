@@ -1,1 +1,1 @@
-web: gunicorn your_project_name.wsgi:application --log-file -
+web: gunicorn drf-api-mm.wsgi:application --log-file -
