@@ -119,6 +119,11 @@ if "CLIENT_ORIGIN_DEV" in os.environ:
         rf"{extracted_url}(eu|us)\d+\w\.gitpod\.io$",
     ]
 
+CORS_ORIGIN_WHITELIST = [
+    'https://3000-antonei-marketmingle-4qheifro1id.ws-eu110.gitpod.io',
+    # Add other origins if needed
+]
+
 CORS_ALLOW_CREDENTIALS = True
 
 ROOT_URLCONF = 'drf_api.urls'
