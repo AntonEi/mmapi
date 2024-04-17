@@ -59,7 +59,7 @@ REST_AUTH_SERIALIZERS = {
 SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = DEBUG = 'DEV' in os.environ
 
 CSRF_TRUSTED_ORIGINS = [
     'https://drf-api-mm-f68b541c99c7.herokuapp.com',
@@ -121,7 +121,6 @@ if "CLIENT_ORIGIN_DEV" in os.environ:
 
 CORS_ORIGIN_WHITELIST = [
     'https://3000-antonei-marketmingle-4qheifro1id.ws-eu110.gitpod.io',
-    # Add other origins if needed
 ]
 
 CORS_ALLOW_CREDENTIALS = True
