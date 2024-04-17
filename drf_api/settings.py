@@ -112,6 +112,8 @@ else:
     CORS_ALLOWED_ORIGIN_REGEXES = [
         r"^https://.*\.gitpod\.io$",
     ]
+
+CORS_ALLOW_ALL_ORIGINS = True
     
 CORS_ALLOW_CREDENTIALS = True
 
