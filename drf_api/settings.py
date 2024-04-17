@@ -63,6 +63,7 @@ DEBUG = True
 
 CSRF_TRUSTED_ORIGINS = [
     'https://drf-api-mm-f68b541c99c7.herokuapp.com/',
+    'https://drf-api-rec.herokuapp.com/dj-rest-auth/user/',
     'https://8000-antonei-mmapi-b7ktmaqggit.ws-eu110.gitpod.io',
 ]
 
