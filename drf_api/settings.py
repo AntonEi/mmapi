@@ -59,12 +59,7 @@ REST_AUTH_SERIALIZERS = {
 SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = DEBUG = 'DEV' in os.environ
-
-CSRF_TRUSTED_ORIGINS = [
-    'https://drf-api-mm-f68b541c99c7.herokuapp.com',
-    'https://8000-antonei-mmapi-b7ktmaqggit.ws-eu110.gitpod.io',
-]
+DEBUG = 'DEBUG' in os.environ
 
 ALLOWED_HOSTS = ['localhost', 'drf-api-mm.herokuapp.com', 'drf-api-mm-f68b541c99c7.herokuapp.com', '8000-antonei-mmapi-b7ktmaqggit.ws-eu110.gitpod.io']
 
@@ -111,16 +106,9 @@ MIDDLEWARE = [
 
 if "CLIENT_ORIGIN" in os.environ:
     CORS_ALLOWED_ORIGINS = [os.environ.get("CLIENT_ORIGIN")]
-if "CLIENT_ORIGIN_DEV" in os.environ:
-    extracted_url = re.match(
-        r"^.+-", os.environ.get("CLIENT_ORIGIN_DEV", ""), re.IGNORECASE
-    ).group(0)
-    CORS_ALLOWED_ORIGIN_REGEXES = [
-        rf"{extracted_url}(eu|us)\d+\w\.gitpod\.io$",
-    ]
 
-CORS_ORIGIN_WHITELIST = [
-    'https://3000-antonei-marketmingle-4qheifro1id.ws-eu110.gitpod.io',
+CORS_ALLOWED_ORIGIN_REGEXES = [
+    r"^https://.*\.gitpod\.io$",
 ]
 
 CORS_ALLOW_CREDENTIALS = True
