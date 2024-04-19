@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from posts.models import Post
 from likes.models import Like
+from dislikes.models import Dislike
 
 
 class PostSerializer(serializers.ModelSerializer):
@@ -11,6 +12,8 @@ class PostSerializer(serializers.ModelSerializer):
     like_id = serializers.SerializerMethodField()
     likes_count = serializers.ReadOnlyField()
     comments_count = serializers.ReadOnlyField()
+    dislike_id = serializers.SerializerMethodField()
+    dislikes_count = serializers.ReadOnlyField()
 
     def validate_image(self, value):
         if value.size > 2 * 1024 * 1024:
@@ -38,6 +41,15 @@ class PostSerializer(serializers.ModelSerializer):
             return like.id if like else None
         return None
 
+    def get_dislike_id(self, obj):
+        user = self.context['request'].user
+        if user.is_authenticated:
+            dislike = Dislike.objects.filter(
+                owner=user, post=obj
+            ).first()
+            return dislike.id if dislike else None
+        return None
+
     class Meta:
         model = Post
         fields = [
@@ -45,4 +57,5 @@ class PostSerializer(serializers.ModelSerializer):
             'profile_image', 'created_at', 'updated_at',
             'title', 'content', 'image', 'image_filter',
             'like_id', 'likes_count', 'comments_count',
+            'dislike_id', 'dislikes_count',
         ]
