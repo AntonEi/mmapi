@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from posts.models import Post
 from likes.models import Like
+from dislikes.models import Dislike
 
 
 class PostSerializer(serializers.ModelSerializer):
@@ -9,7 +10,9 @@ class PostSerializer(serializers.ModelSerializer):
     profile_id = serializers.ReadOnlyField(source='owner.profile.id')
     profile_image = serializers.ReadOnlyField(source='owner.profile.image.url')
     like_id = serializers.SerializerMethodField()
+    dislike_id = serializers.SerializerMethodField()
     likes_count = serializers.ReadOnlyField()
+    dislikes_count = serializers.ReadOnlyField()
     comments_count = serializers.ReadOnlyField()
 
     def validate_image(self, value):
@@ -38,11 +41,18 @@ class PostSerializer(serializers.ModelSerializer):
             return like.id if like else None
         return None
 
+    def get_dislike_id(self, obj):  # Method to retrieve dislike ID
+        user = self.context['request'].user
+        if user.is_authenticated:
+            dislike = Dislike.objects.filter(owner=user, post=obj).first()
+            return dislike.id if dislike else None
+        return None
+
     class Meta:
         model = Post
         fields = [
-            'id', 'owner', 'is_owner', 'profile_id',
-            'profile_image', 'created_at', 'updated_at',
-            'title', 'content', 'image', 'image_filter',
-            'like_id', 'likes_count', 'comments_count',
+            'id', 'owner', 'is_owner', 'profile_id', 'profile_image',
+            'created_at', 'updated_at', 'title', 'content', 'image',
+            'image_filter', 'like_id', 'dislike_id', 'likes_count',
+            'dislikes_count', 'comments_count',
         ]
