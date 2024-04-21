@@ -9,7 +9,7 @@ class QuestionList(generics.ListCreateAPIView):
     """
     serializer_class = QuestionSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
-    queryset = Question.objects.order_by('-pub_date')[:5]
+    # queryset = Question.objects.order_by('-pub_date')[:5]
 
     def list(self, request, *args, **kwargs):
         queryset = self.get_queryset()
