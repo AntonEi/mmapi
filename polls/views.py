@@ -50,11 +50,15 @@ class ChoiceList(generics.ListCreateAPIView):
         return JsonResponse(serializer.data, safe=False)
 
     def create(self, request, *args, **kwargs):
-        serializer = self.get_serializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
-        self.perform_create(serializer)
-        headers = self.get_success_headers(serializer.data)
-        return JsonResponse(serializer.data, status=201, headers=headers)
+        try:
+            serializer = self.get_serializer(data=request.data)
+            serializer.is_valid(raise_exception=True)
+            self.perform_create(serializer)
+            headers = self.get_success_headers(serializer.data)
+            return JsonResponse(serializer.data, status=201, headers=headers)
+        except Exception as e:
+            logger.error("Error creating choice: %s", e)
+            return JsonResponse({"error": "Failed to create choice"}, status=400)
 
 class ChoiceDetail(generics.RetrieveUpdateDestroyAPIView):
     """
