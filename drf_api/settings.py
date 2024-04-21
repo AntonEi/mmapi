@@ -61,6 +61,10 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://8000-antonei-mmapi-b7ktmaqggit.ws-eu110.gitpod.io',  # Replace with your frontend domain
+]
+
 ALLOWED_HOSTS = ['localhost', 'drf-api-mm.herokuapp.com', 'drf-api-mm-f68b541c99c7.herokuapp.com', '8000-antonei-mmapi-b7ktmaqggit.ws-eu110.gitpod.io']
 
 
@@ -92,6 +96,7 @@ INSTALLED_APPS = [
     'likes',
     'followers',
     'dislikes',
+    'polls',
 ]
 SITE_ID = 1
 MIDDLEWARE = [
