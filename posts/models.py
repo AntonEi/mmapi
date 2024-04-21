@@ -28,6 +28,7 @@ class Post(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     title = models.CharField(max_length=255)
     content = models.TextField(blank=True)
+    tags = models.ManyToManyField('tags.Tag', related_name='posts')
     image = models.ImageField(
         upload_to='images/', default='../mm-post-defult_ysbgha', blank=True
     )
