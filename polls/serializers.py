@@ -6,6 +6,14 @@ class ChoiceSerializer(serializers.ModelSerializer):
         model = Choice
         fields = ['id', 'choice_text', 'votes']
 
+    def update(self, instance, validated_data):
+        instance.choice_text = validated_data.get('choice_text', instance.choice_text)
+        # Update the votes field if it's present in the validated_data
+        if 'votes' in validated_data:
+            instance.votes = validated_data['votes']
+        instance.save()
+        return instance
+
 class QuestionSerializer(serializers.ModelSerializer):
     choices = ChoiceSerializer(many=True)
 
