@@ -51,7 +51,7 @@ class PostSerializer(serializers.ModelSerializer):
             return dislike.id if dislike else None
         return None
 
-    def get_tags_data(self, obj):
+    def get_tags(self, obj):
         if obj.tags:
             tags = Tag.objects.filter(
                 id__in=obj.tags.values_list('id', flat=True)
