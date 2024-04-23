@@ -4,7 +4,7 @@ from .models import Question, Choice
 class ChoiceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Choice
-        fields = ['id', 'choice_text', 'votes']
+        fields = ['id', 'choice_text', 'votes', 'users']
 
     def update(self, instance, validated_data):
         instance.choice_text = validated_data.get('choice_text', instance.choice_text)
