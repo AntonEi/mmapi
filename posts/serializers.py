@@ -65,5 +65,5 @@ class PostSerializer(serializers.ModelSerializer):
             'id', 'owner', 'is_owner', 'profile_id', 'profile_image',
             'created_at', 'updated_at', 'title', 'content', 'image',
             'image_filter', 'like_id', 'dislike_id', 'likes_count',
-            'dislikes_count', 'comments_count', 'tags_data',
+            'dislikes_count', 'comments_count', 'tags',
         ]
