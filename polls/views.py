@@ -42,7 +42,7 @@ class ChoiceList(generics.ListCreateAPIView):
     def get_queryset(self):
         question_id = self.kwargs['question_id']
         question = get_object_or_404(Question, pk=question_id)
-        return question.choice_set.all()
+        return question.choices.all()  # Use the related_name 'choices' here
 
     def list(self, request, *args, **kwargs):
         queryset = self.get_queryset()
@@ -59,6 +59,7 @@ class ChoiceList(generics.ListCreateAPIView):
         except Exception as e:
             logger.error("Error creating choice: %s", e)
             return JsonResponse({"error": "Failed to create choice"}, status=400)
+
 
 class ChoiceDetail(generics.RetrieveUpdateDestroyAPIView):
     """
