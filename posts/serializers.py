@@ -16,7 +16,7 @@ class PostSerializer(serializers.ModelSerializer):
     likes_count = serializers.ReadOnlyField()
     dislikes_count = serializers.ReadOnlyField()
     comments_count = serializers.ReadOnlyField()
-    tags = serializers.SerializerMethodField(source='tags')
+    tags_data = serializers.SerializerMethodField()
 
     def validate_image(self, value):
         if value.size > 2 * 1024 * 1024:
@@ -51,7 +51,7 @@ class PostSerializer(serializers.ModelSerializer):
             return dislike.id if dislike else None
         return None
 
-    def get_tags(self, obj):
+    def get_tags_data(self, obj):
         if obj.tags:
             tags = Tag.objects.filter(
                 id__in=obj.tags.values_list('id', flat=True)
@@ -65,5 +65,5 @@ class PostSerializer(serializers.ModelSerializer):
             'id', 'owner', 'is_owner', 'profile_id', 'profile_image',
             'created_at', 'updated_at', 'title', 'content', 'image',
             'image_filter', 'like_id', 'dislike_id', 'likes_count',
-            'dislikes_count', 'comments_count', 'tags',
+            'dislikes_count', 'comments_count', 'tags_data',
         ]
