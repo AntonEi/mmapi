@@ -18,6 +18,11 @@ class PostSerializer(serializers.ModelSerializer):
     comments_count = serializers.ReadOnlyField()
     tags_data = serializers.SerializerMethodField()
 
+    # def create(self, validated_data):
+    #     print(validated_data)
+    #     instance = super().create(validated_data)
+    #     return instance
+
     def validate_image(self, value):
         if value.size > 2 * 1024 * 1024:
             raise serializers.ValidationError('Image size larger than 2MB!')
@@ -65,5 +70,5 @@ class PostSerializer(serializers.ModelSerializer):
             'id', 'owner', 'is_owner', 'profile_id', 'profile_image',
             'created_at', 'updated_at', 'title', 'content', 'image',
             'image_filter', 'like_id', 'dislike_id', 'likes_count',
-            'dislikes_count', 'comments_count', 'tags_data',
+            'dislikes_count', 'comments_count', 'tags_data', 'tags',
         ]
