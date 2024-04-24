@@ -87,7 +87,7 @@ class ChoiceDetail(generics.RetrieveUpdateDestroyAPIView):
         serializer.is_valid(raise_exception=True)
         self.perform_update(serializer)
         for user_id in request.data['users']:
-            user = User.objects.get(pk=user)
+            user = User.objects.get(pk=user_id)
             instance.users.append(user)
         instance.save()
         return JsonResponse(instance)
