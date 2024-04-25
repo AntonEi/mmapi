@@ -5,7 +5,9 @@ from posts.models import Post
 
 class Dislike(models.Model):
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
-    post = models.ForeignKey(Post, related_name='dislikes', on_delete=models.CASCADE)
+    post = models.ForeignKey(
+        Post, related_name='dislikes', on_delete=models.CASCADE
+    )
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
