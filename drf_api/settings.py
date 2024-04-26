@@ -62,7 +62,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = True
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://8000-antonei-mmapi-b7ktmaqggit.ws-eu110.gitpod.io',  # Replace with your frontend domain
+    'https://8000-antonei-mmapi-b7ktmaqggit.ws-eu110.gitpod.io', 'https://marketmingle-d94891f1357b.herokuapp.com/', # Replace with your frontend domain
 ]
 
 ALLOWED_HOSTS = ['localhost', 'drf-api-mm.herokuapp.com', 'drf-api-mm-f68b541c99c7.herokuapp.com', '8000-antonei-mmapi-b7ktmaqggit.ws-eu110.gitpod.io']
