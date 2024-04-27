@@ -1,39 +1,68 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# drf-api
+"MMAPI"" is the backend service used by the [MarketMingle](https://github.com/AntonEi/marketmingle) platform.
+The deployed DjangoRESTFramework API can be found [here](https://marketmingle-d94891f1357b.herokuapp.com/)
 
-Welcome,
+# Purpose of the API:
+To serve as the Back bone for the Front-end, by posting and getting data from endpoints and to perform Create, Read, Update and Delete operations to objects entered by Users via Front-end.
 
-This is the Code Institute student template for Codeanywhere. If you are using Gitpod then you need [this template](https://github.com/Code-Institute-Org/gitpod-full-template) instead.  We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+### User Stories
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Codeanywhere and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **August 30th, 2023**
+Posts app: 
+- As a user, I want to be able to create, edit, and delete posts so that I can share content with others.
+- As a user, I want to be able to view posts from other users so that I can discover new content and engage with the community.
+- As a user, I want to be able to filter posts based on various criteria such as date, popularity, or topic.
 
-## Codeanywhere Reminders
+Tags App:
+- As a user, I want to be able to add tags to my posts so that I can categorize and organize my content.
+- As a user, I want to be able to click on a tag to view all posts associated with that tag so that I can explore related content.
+- As a creator, I want to be able to manage tags by creating, editing, and deleting them so that I can maintain a consistent tagging system.
 
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere, in the terminal, type:
+Profiles App:
+- As a user, I want to be able to view my profile so that I can see an overview of my activity and information.
+- As a user, I want to be able to edit my profile information such as username, bio, and profile picture.
+- As a user, I want to be able to see other users' profiles so that I can learn more about them and their activity on the platform.
 
-`python3 -m http.server`
+Likes App: 
+- As a user, I want to be able to like content so that I can express appreciation for items that I enjoy or find useful.
+- As a user, I want to see the total number of likes on a piece of content so that I can gauge its popularity or appeal.
+- As a user, I want to be able to unlike content if I change my mind or made a mistake in liking it.
 
-A button should appear to click: _Open Preview_ or _Open Browser_.
+Dislikes App:
+- As a user, I want to be able to "dislike" certain content so that I can express my preferences and provide feedback on items I don't like .
+- As a user, I want to see the total number of dislikes on a piece of content so that I can gauge its popularity or controversiality.
 
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere with no-cache, you can use this alias for `python3 -m http.server`.
+Comments App: 
+- As a user, I want to be able to add comments to posts so that I can engage in discussions and provide feedback.
+- As a user, I want to be able to delete my own comments so that I can manage my contributions to discussions.
+- As a user, I want to be able to edit my comments so that I can correct mistakes or update information.
 
-`http_server`
+Followers App:
+- As a user, I want to be able to follow other users or entities so that I can stay updated on their activities and receive notifications about their actions.
+- As a user, I want to see a list of followers for my profile so that I can interact with them or follow them back if desired.
+- As a user, I want to receive notifications when someone follows me so that I can acknowledge their interest in my content.
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+Polls App:
+- As a user, I want to be able to participate in polls so that I can share my opinion on various topics.
+- As a user, I want to see the results of polls after I have voted so that I can compare my opinion with others.
+- As a creator, I want to be able to create, edit, and delete polls so that I can engage my audience and gather feedback.
 
-A button should appear to click: _Open Preview_ or _Open Browser_.
+## Features
 
-In Codeanywhere you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+- User Registration and Authentication: Allows users to create accounts, log in and log out to access personalized features.
+- Profile Management: Profiles are automatically created upon registration. Profiles can be updated including personal information and bio.
+- Posts Creation and Interaction: Users can create posts, like and comment on others posts.
+- Followers and likes System: Users can follow each other and be bullish/bearish on each others' content.
+- Poll Feature: Visitors can easily answer poll questions to share their opinions and contribute to discussions on the site.
+- Tag Feature: Users can tag posts and events to enhance categorization and searchability.
 
-To log into the Heroku toolbelt CLI:
+### Future Features
 
-1. Log in to your Heroku account and go to _Account Settings_ in the menu under your avatar.
-2. Scroll down to the _API Key_ and click _Reveal_
-3. Copy the key
-4. In Codeanywhere, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+- User Messaging System: Implement a messaging system to allow users to communicate with each other privately.
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+- Notification System: Introduce a notification system to alert users about new interactions, events, or updates relevant to their interests.
 
----
+## Database Design
 
-Happy coding!
+The applicatopn leverages a relational database structured around Django models. The relationships between the models are illustrated in the ERD:
+
+![ERD](documentation/hoodsap_ERD.png)
