@@ -66,3 +66,23 @@ Polls App:
 The applicatopn leverages a relational database structured around Django models. The relationships between the models are illustrated in the ERD:
 
 ![ERD](documentation/hoodsap_ERD.png)
+
+- **Profile**: Contains user profiles with additional information like name, content, and image.
+- **Location**: Stores geographical data with fields for latitude, longitude, country, city, and locality. It's referenced by the Profile, Post, and SocialEvent models to facilitate location-based filtering.
+- **Post**: Represents user-generated content with fields for owner, created_at, updated_at, title, content, tags, image, and image_filter. It includes a foreign key to User for ownership, a link to the Location model, and a many-to-many relationship with the Tag model for categorization.
+- **Comment, Dislike**: Manage commenting and disliking on posts, each linking back to the User and the Post.
+- **Follower**: Manages the relationship between users, allowing one user to follow another.
+- **Like**: Manages user interactions such as liking posts, linking back to the User and the Post.
+- **Question, Choice**: Represents a poll feature with questions and choices. The Question model contains the question_text and created_at fields. The Choice model contains the choice_text, votes, and users fields, with a many-to-many relationship with User for tracking user choices.
+- **Tag**: Used for categorizing posts and events, featuring a simple model with just a name for each tag.
+
+
+## Testing
+
+All endpoints underwent manual testing during the development phase by accessing the URLs directly. The API was rigorously evaluated through various request types (GET, POST, PUT, DELETE) both during development and in the production environment, as initiated from the Front End Application.
+
+### Python Linter (PEP 8)
+
+No errors in the PEP 8 
+
+159: E501 line too long (87 > 79 characters)
