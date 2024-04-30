@@ -65,10 +65,9 @@ Polls App:
 
 The applicatopn leverages a relational database structured around Django models. The relationships between the models are illustrated in the ERD:
 
-![ERD](documentation/hoodsap_ERD.png)
+![ERD](readme/data-model.png)
 
 - **Profile**: Contains user profiles with additional information like name, content, and image.
-- **Location**: Stores geographical data with fields for latitude, longitude, country, city, and locality. It's referenced by the Profile, Post, and SocialEvent models to facilitate location-based filtering.
 - **Post**: Represents user-generated content with fields for owner, created_at, updated_at, title, content, tags, image, and image_filter. It includes a foreign key to User for ownership, a link to the Location model, and a many-to-many relationship with the Tag model for categorization.
 - **Comment, Dislike**: Manage commenting and disliking on posts, each linking back to the User and the Post.
 - **Follower**: Manages the relationship between users, allowing one user to follow another.
@@ -268,3 +267,13 @@ This site has been deployed to Heroku, using ElephantSQL database and Cloudinary
     - In the 'search' field enter the repository name
     - Connect to link the heroku app with the Github repository
     - Click "Deploy Branch" or enable "Automatic Deploys"
+
+
+## Credits
+
+- The structure of the project, especially project set up and the posts, profiles, likes, comments and followers apps, is based on Code Institute's Django REST Framework project ([drf-api](https://github.com/Code-Institute-Solutions/drf-api)).
+- Deployment steps from Code Institure tutorial to create a combined project.
+- The Tags functionality was inspired by Javier's implementation in his [hoodsap](https://github.com/fsjavier/hoodsap-api) project. You can find the Tags app for the backend [here](https://github.com/fsjavier/hoodsap-api/tree/main/tags).
+
+- Credit goes to my peer, Elin Dalenbäck, for her collaborative spirit and dedication in troubleshooting and more. Much appreciated!
+
