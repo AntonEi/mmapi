@@ -87,6 +87,91 @@ In settings.py five instances of the 'E501 line too long' error have been identi
 
 For all other files the result was "All clear, no errors found"
 
+### Testing using Postman
+
+### Profiles
+| Element                    | Action     | Expected Result                                                    | Pass/Fail |
+|----------------------------|------------|--------------------------------------------------------------------|-----------|
+| /profiles/                 | GET        | Data displayed as a list of profiles                               | Pass      |
+| /profiles/<int:pk>/        | DELETE     | The deleted profile is removed from the list of data               | Pass      |
+| /profiles/<int:pk>/        | PUT        | Successfully update/change the profiles information                | Pass      |
+| /profiles/<int:pk>/        | GET        | Displays a specific profile's data                                 | Pass      |
+| dj-rest-auth/registration/ | POST       | Register a new user                                                | Pass      |
+| dj-rest-auth/              | GET        | Log in as a registered user                                        | Pass      |
+| dj-rest-auth/logout/       | GET        | Log out as a registered user                                       | Pass      |
+
+### Likes
+| Element               | Action     | Expected Result                                                    | Pass/Fail |
+|-----------------------|------------|--------------------------------------------------------------------|-----------|
+| /likes/               | GET        | Data displayed as a list of likes                                  | Pass      |
+| /likes/<int:pk>/      | DELETE     | The deleted like is removed from the list of data                  | Pass      |
+| /likes/               | POST       | Create a new like and adds the like to the list of likes           | Pass      |
+| /likes/<int:pk>/      | GET        | Displays a specific like's data                                    | Pass      |
+
+### Dislikes
+| Element               | Action     | Expected Result                                                    | Pass/Fail |
+|-----------------------|------------|--------------------------------------------------------------------|-----------|
+| /dislikes/            | GET        | Data displayed as a list of dislikes                               | Pass      |
+| /dislikes/<int:pk>/   | DELETE     | The deleted dislike is removed from the list of data               | Pass      |
+| /dislikes/            | POST       | Create a new dislike and adds the dislike to the list of dislikes  | Pass      |
+| /dislikes/<int:pk>/   | GET        | Displays a specific dislike's data                                 | Pass      |
+
+### Comments
+| Element               | Action     | Expected Result                                                    | Pass/Fail |
+|-----------------------|------------|--------------------------------------------------------------------|-----------|
+| /comments/            | GET        | Data displayed as a list of comments                               | Pass      |
+| /comments/<int:pk>/   | DELETE     | The deleted comment is removed from the list of data               | Pass      |
+| /comments/            | POST       | Successfully create a new comment, the comment is added to the list of data  | Pass      |
+| /comments/<int:pk>/   | PUT        | Successfully update/change the comment's details                   | Pass      |
+| /comments/<int:pk>/   | GET        | Displays a specific comment's data                                 | Pass      |
+
+### Posts
+| Element               | Action     | Expected Result                                                    | Pass/Fail |
+|-----------------------|------------|--------------------------------------------------------------------|-----------|
+| /posts/               | GET        | Data displayed as a list of posts                                  | Pass      |
+| /posts/               | POST       | Successfully create a new post, the post is added to the list of data  | Pass      |
+| /posts/<int:pk>/      | DELETE     | The deleted post is removed from the list of data                  | Pass      |
+| /posts/<int:pk>/      | PUT        | Successfully update/change the post's details                      | Pass      |
+| /posts/<int:pk>/      | GET        | Displays a specific post's data                                    | Pass      |
+
+### Followers
+| Element               | Action     | Expected Result                                                    | Pass/Fail |
+|-----------------------|------------|--------------------------------------------------------------------|-----------|
+| /followers/           | GET        | Data displayed as a list of followers                              | Pass      |
+| /followers/           | POST       | Successfully create a new follower, the follower is added to the list of data | Pass      |
+| /followers/<int:pk>/  | GET        | Displays a specific follower's data                                | Pass      |
+| /followers/<int:pk>/  | DELETE     | The deleted follower is removed from the list of data              | Pass      |
+
+### Polls
+
+#### Questions
+| Element               | Action     | Expected Result                                                    | Pass/Fail |
+|-----------------------|------------|--------------------------------------------------------------------|-----------|
+| /questions/           | GET        | Data displayed as a list of questions                              | Pass      |
+| /questions/           | POST       | Successfully create a new question, the question is added to the list of data | Pass      |
+| /questions/<int:pk>/  | DELETE     | The deleted question is removed from the list of data              | Pass      |
+| /questions/<int:pk>/  | PUT        | Successfully update/change the question's details                  | Pass      |
+| /questions/<int:pk>/  | GET        | Displays a specific question's data                                | Pass      |
+
+#### Choices
+| Element                            | Action     | Expected Result                                                              | Pass/Fail |
+|------------------------------------|------------|------------------------------------------------------------------------------|-----------|
+| /questions/<int:question_id>/choices/ | GET      | Data displayed as a list of choices for the specified question               | Pass      |
+| /questions/<int:question_id>/choices/ | POST     | Successfully create a new choice for the specified question, added to the list of choices | Pass      |
+| /questions/<int:question_id>/choices/<int:pk>/ | DELETE | The deleted choice for the specified question is removed from the list of choices | Pass      |
+| /questions/<int:question_id>/choices/<int:pk>/ | PUT    | Successfully update/change the choice's details for the specified question | Pass      |
+| /questions/<int:question_id>/choices/<int:pk>/ | GET    | Displays a specific choice's data for the specified question               | Pass      |
+
+### Tags
+| Element               | Action     | Expected Result                                                    | Pass/Fail |
+|-----------------------|------------|--------------------------------------------------------------------|-----------|
+| /tags/                | GET        | Data displayed as a list of tags                                   | Pass      |
+| /tags/                | POST       | Successfully create a new tag, the tag is added to the list of data | Pass      |
+| /tags/<int:pk>        | DELETE     | The deleted tag is removed from the list of data                   | Pass      |
+| /tags/<int:pk>        | GET        | Displays a specific tag's data                                     | Pass      |
+
+
+
 ## Technologies used
 
 The project is developed in Python.
